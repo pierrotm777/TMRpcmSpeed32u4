@@ -18,19 +18,36 @@ API and “philosophy” compatible with **TMRpcm / TMRpcmSpeed**, but adapted f
 ```cpp
 #include <SPI.h>
 #include <SD.h>
-#include <TMRpcm.h>
+#include <TMRpcmSpeed32u4.h>
 
-TMRpcm audio;
+TMRpcmSpeed32u4 audio;
 
 void setup() {
-  SD.begin(10);
-  audio.speakerPin = 6;      // fixed on 32u4
-  audio.setVolume(5);        // 0..7 (like TMRpcm style)
-  audio.play("IDLE.WAV");
+  Serial.begin(115200);
+  // Timeout USB Serial: ne bloque pas si pas d'USB
+  uint32_t t0 = millis();
+  while (!Serial && (millis() - t0 < 1500)) {
+    delay(1);
+  }
+  
+  if (!SD.begin(SD_CS_PIN)) {
+    Serial.println("SD init failed");
+    while (1) {}
+  }
+  
+  if(!audio.begin()) { // CS SD = D10 (adapt if needed)
+    Serial.println("Audio init failed");
+    while(1);
+  }
+
+  audio.setVolume(8); // 0..8
+  if(!audio.play("1.WAV")) {
+    Serial.println("play failed (need 8-bit mono PCM WAV)");
+  }
 }
 
 void loop() {
-  audio.update();            // must be called often
+  audio.update(); // important!
 }
 ```
 
