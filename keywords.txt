@@ -1,0 +1,34 @@
+#######################################
+# Syntax Coloring Map TMRpcmSpeed32u4
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+TMRpcmSpeed32u4	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+loopPlayback	KEYWORD2
+begin	KEYWORD2
+play	KEYWORD2
+stop	KEYWORD2
+stopPlayback	KEYWORD2
+isPlaying	KEYWORD2
+pause	KEYWORD2
+resume	KEYWORD2
+isPaused	KEYWORD2
+update	KEYWORD2
+setVolume	KEYWORD2
+setPlaybackRate	KEYWORD2
+getPlaybackRate	KEYWORD2
+setSpeedFromPulseUs	KEYWORD2
+getWavSampleRate	KEYWORD2
+debugBuffered	KEYWORD2
+_isrService	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
