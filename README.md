@@ -53,7 +53,6 @@ void loop() {
 
 ## Speed / pitch control (TMRpcmSpeed-like)
 - `audio.setPlaybackRate(rate);`  // 1.0 = normal, >1 faster/higher, <1 slower/lower
-- `audio.speedUp();` / `audio.speedDown();`
 - `audio.setSpeedFromPulseUs(us);` mapping 1000–2000 µs to a rate range
 
 See `examples/rc_pwm_speed/rc_pwm_speed.ino`.
